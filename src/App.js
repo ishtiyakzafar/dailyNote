@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Header from "./component/Header";
+import Createnotes from "./component/Createnotes";
+import Notes from "./component/Notes";
 
-function App() {
+const App = () => {
+  const [newNote, setNewNote] = useState(() => {
+   const localData = localStorage.getItem("note");
+   return localData ? JSON.parse(localData) : []
+  });
+
+  const addData = (note) => {
+    setNewNote((oldData) => {
+      return [...oldData, note];
+    });
+  };
+
+  const delNote = (id) => {
+    setNewNote((oldarr) =>
+      oldarr.filter((val, index) => {
+        return index !== id;
+      })
+    );
+  };
+
+  useEffect(() => {
+    localStorage.setItem("note", JSON.stringify(newNote));
+  }, [newNote]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Createnotes passData={addData} />
+      {newNote.map((curval, index) => {
+        return (
+          <Notes
+            key={index}
+            id={index}
+            title={curval.title}
+            content={curval.content}
+            delete={delNote}
+          />
+        );
+      })}
+    </>
   );
-}
-
+};
 export default App;

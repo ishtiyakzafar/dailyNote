@@ -1,13 +1,146 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.set_header {
+  width: 100%;
+  height: 80px;
+  background: #32ff7e;
+  display: flex;
+  
+  line-height: 80px;
+  align-items: center;
+  text-transform: capitalize;
+  color: white;
+  margin-bottom: 20px;
+}
+.set_header h1{
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.set_header img {
+  width: 60px;
+  height: 60px;
+  line-height: 80px;
+  margin-left: 20px;
+}
+
+.main_note {
+  /* margin: 35px 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cretenote Button {
+  /* box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.2); */
+  margin: 10px;
+  width: 20px;
+  float: right;
+  /* display: none; */
+}
+.setbtn Button {
+  color: #32ff7e;
+  outline: none;
+}
+::placeholder {
+  font-size: 17px;
+}
+.cretenote {
+   /* box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.2); */
+  width: 50%;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+.cretenote input {
+  margin-top: 15px;
+  padding: 10px 10px;
+  outline: none;
+  border: none;
+  font-size: 17px;
+}
+.cretenote textarea {
+  font-size: 17px;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.outer_note {
+  margin-left: 140px;
+}
+
+.note {
+ 
+  width: 20%;
+  height: auto;
+  margin: 10px;
+  padding: 20px;
+  float: left;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  word-wrap: break-word;
+}
+
+.note p {
+  margin: 10px 0;
+}
+
+.note Button {
+  color: tomato;
+  cursor: pointer;
+}
+.note Button {
+  outline: none;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+}
+.set_btn {
+  text-align: right;
+}
+
+.addBtn button{
+  width: 150px;
+  height: 50px;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  background: #f39c12;
+  border-radius: 3px;
+  color: #fff;
+
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .cretenote {
+    width: 90%;
+  }
+  .outer_note {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .note {
+    width: 100%;
+    margin-left: 0px;
+    float: none;
+  }
+  .outer_note {
+    margin-left: 0px;
+    margin: 20px;
+  }
 }
