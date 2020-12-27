@@ -5,6 +5,7 @@ const Createnotes = (props) => {
     title: "",
     content: "",
   });
+  const [errMsg, setErrMsg] = useState("Write a note");
 
   const enterData = (event) => {
     const { name, value } = event.target;
@@ -18,8 +19,10 @@ const Createnotes = (props) => {
     const contentvalue = document.getElementById("demo1").value;
 
     if (titlevalue === "" || contentvalue === "") {
-      alert("make note");
+      setErrMsg("! Make note");
       return false;
+    } else {
+      setErrMsg("Write a note");
     }
 
     props.passData(note);
@@ -40,7 +43,7 @@ const Createnotes = (props) => {
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          Write a note
+          {errMsg}
         </button>
       </div>
       <div className="collapse" id="collapseExample">
